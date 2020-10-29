@@ -1,0 +1,1 @@
+SUBFILTER=( .owasp.org,.owasp.org.glasswall-icap.com )
