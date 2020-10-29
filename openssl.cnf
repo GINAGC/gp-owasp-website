@@ -1,0 +1,27 @@
+[req]
+distinguished_name = req_distinguished_name
+req_extensions = v3_req
+
+[req_distinguished_name]
+countryName = GB
+countryName_default = GB
+stateOrProvinceName = London
+stateOrProvinceName_default = London
+localityName = 
+localityName_default = 
+organizationalUnitName = OWASP
+organizationalUnitName_default = OWASP
+commonName = OWASP
+commonName_default = OWASP
+commonName_max = 64
+
+[ v3_req ]
+# Extensions to add to a certificate request
+#basicConstraints = CA:FALSE
+keyUsage = critical, digitalSignature, keyAgreement
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = owasp.org.glasswall-icap.com
+DNS.2 = *.owasp.org.glasswall-icap.com
