@@ -19,7 +19,7 @@
  5. helm install . --namespace icap-adaptation --generate-name
  6. kubectl get pods -n icap-adaptation, Check Pods status should be Running. In case if icap-adaptation pod is not running in error state, delete the pod 
  
- **Prepare Reverse Proxy Images**
+# Prepare Reverse Proxy Images
  
  7. git clone https://github.com/k8-proxy/k8-reverse-proxy.git --recursive && cd k8-reverse-proxy/stable-src/
  8. Update gwproxy.env with website details
