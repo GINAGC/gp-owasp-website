@@ -23,6 +23,7 @@
  
  7. git clone https://github.com/k8-proxy/k8-reverse-proxy.git --recursive && cd k8-reverse-proxy/stable-src/
  8. Update gwproxy.env with website details
+ 9. Replcae nginx/full.pem ../../gp-owasp-website/sow2_0/full.pem (gp-owasp-website is cloned in step 3)
  9. Build reverse proxy images
 		 docker build nginx -t <docker registry>/reverse-proxy-nginx:0.0.1
 		 docker push <docker registry>/reverse-proxy-nginx:0.0.1  # Optional
