@@ -48,10 +48,10 @@
 	  --set image.squid.tag=0.0.1 \
 	  --set image.icap.repository=<docker registry>/reverse-proxy-c-icap \
 	  --set image.icap.tag=0.0.1 \
-	  --set application.nginx.env.ALLOWED_DOMAINS='owasp.org.glasswall-icap.com\,www.owasp.org.glasswall-icap.com' \
+	  --set application.nginx.env.ALLOWED_DOMAINS='owasp.org.glasswall-icap.com\,www.owasp.org.glasswall-icap.com,cse.google.com.glasswall-icap.com,www,cse.google.com.glasswall-icap.com,google.com.glasswall-icap.com,www,google.com.glasswall-icap.com' \
 	  --set application.nginx.env.ROOT_DOMAIN='glasswall-icap.com' \
-	  --set application.nginx.env.SUBFILTER_ENV='owasp.org\,owasp.org.glasswall-icap.com' \
-	  --set application.squid.env.ALLOWED_DOMAINS='owasp.org.glasswall-icap.com\,www.owasp.org.glasswall-icap.com' \
+	  --set application.nginx.env.SUBFILTER_ENV='owasp.org\,owasp.org.glasswall-icap.com cse.google.com,cse.google.com.glasswall-icap.com google.com google.com.glasswall-icap.com' \
+	  --set application.squid.env.ALLOWED_DOMAINS='owasp.org.glasswall-icap.com\,www.owasp.org.glasswall-icap.com,cse.google.com.glasswall-icap.com,www,cse.google.com.glasswall-icap.com,google.com.glasswall-icap.com,www,google.com.glasswall-icap.com' \
 	  --set application.squid.env.ROOT_DOMAIN='glasswall-icap.com' \
 	  reverse-proxy chart/
   
@@ -66,6 +66,6 @@
  2. Verify ingress details as well, host and path details should be proper.
  3. https://github.com/filetrust/icap-infrastructure has issues(unbounded volume claim), so adaptation folder content is modified and placed inside sow2_0/adaptation folder
 
-
-
+## OWASP Search Scenario
+In owasp website search results were not working properly as Owasp use JS functions from cse.google.com and google.com. Search results were fetched by JS. As this was done on browser and we were proxing owasp.org url. Due to this search results urls were not rewritten. As a fix we are rewitting cse.google.com and google.com. Updated allowed domains are:  owasp.org.glasswall-icap.com,www.owasp.org.glasswall-icap.com,cse.google.com.glasswall-icap.com,www.cse.google.com.glasswall-icap.com,google.com.glasswall-icap.com,www.google.com.glasswall-icap.com
 
