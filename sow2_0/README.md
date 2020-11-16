@@ -25,6 +25,7 @@
  8. Update gwproxy.env with website details
  9. Replcae nginx/full.pem ../../gp-owasp-website/sow2_0/full.pem (gp-owasp-website is cloned in step 3)
  9. Build reverse proxy images
+ 
 		 docker build nginx -t <docker registry>/reverse-proxy-nginx:0.0.1
 		 docker push <docker registry>/reverse-proxy-nginx:0.0.1  # Optional
 
@@ -40,8 +41,9 @@
  
  11. git clone https://github.com/k8-proxy/s-k8-proxy-rebuild.git && cd s-k8-proxy-rebuild/stable-src/
  12. Update website info in charts/values.yaml file (Icap url can also be updated directly in charts/templates/deployment.yaml with value from step 10, search for ICAP_URL) 
- 13. Install nginx, squid reverse proxy 	
-		helm --namespace icap-adaptation upgrade --install \
+ 13. Install nginx, squid reverse proxy 
+ 
+	helm --namespace icap-adaptation upgrade --install \
 	  --set image.nginx.repository=<docker registry>/reverse-proxy-nginx \
 	  --set image.nginx.tag=0.0.1 \
 	  --set image.squid.repository=<docker registry>/reverse-proxy-squid \
@@ -68,4 +70,3 @@
 
 ## OWASP Search Scenario
 In owasp website search results were not working properly as Owasp use JS functions from cse.google.com and google.com. Search results were fetched by JS. As this was done on browser and we were proxing owasp.org url. Due to this search results urls were not rewritten. As a fix we are rewitting cse.google.com and google.com. Updated allowed domains are:  owasp.org.glasswall-icap.com,www.owasp.org.glasswall-icap.com,cse.google.com.glasswall-icap.com,www.cse.google.com.glasswall-icap.com,google.com.glasswall-icap.com,www.google.com.glasswall-icap.com
-
