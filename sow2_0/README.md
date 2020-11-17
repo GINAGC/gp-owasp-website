@@ -15,9 +15,10 @@
 3. git clone https://github.com/k8-proxy/k8-reverse-proxy.git --recursive && cd k8-reverse-proxy/stable-src/
 4. Update gwproxy.env with website details i.e ALLOWED_DOMAINS, SUBFILTER_ENV
 5. Replcae nginx/full.pem ../../gp-owasp-website/sow2_0/full.pem (gp-owasp-website is cloned in step 2)
-6. Build images for squid and nginx
- a) docker build nginx -t <docker registry>/reverse-proxy-nginx:0.0.1
- b) docker build squid -t <docker registry>/reverse-proxy-squid:0.0.1
+6. Build images for squid and nginx. Optionally Images can be pushed to docker repository as well.
+    ```
+    docker build nginx -t <docker registry>/reverse-proxy-nginx:0.0.1
+    docker build squid -t <docker registry>/reverse-proxy-squid:0.0.1
 
 7. git clone https://github.com/k8-proxy/s-k8-proxy-rebuild.git && cd s-k8-proxy-rebuild/stable-src/  
 
