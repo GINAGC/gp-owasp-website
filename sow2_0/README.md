@@ -22,7 +22,7 @@
 
 7. git clone https://github.com/k8-proxy/s-k8-proxy-rebuild.git && cd s-k8-proxy-rebuild/stable-src/  
 
-8. Update chart/values  
+8. Update chart/values.yaml
 	```
 	set service.icap.enabled=false
 	set service.nginx.additionalHosts 
